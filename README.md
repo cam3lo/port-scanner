@@ -4,4 +4,4 @@ With the desire to have a least some projects on here, I wrote a basic port scan
 Notes:
     1. Add different types of scanning depending on user needs
     2. Scanner works, but requires a few tries... work on way to make it so
-       that it tries multiple times by itself until open port found
+       that it tries multiple times by itself until open ports are found
