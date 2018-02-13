@@ -1,5 +1,5 @@
 # port-scanner
-A basic port scanner script written in Python to at least start having some programs up on the hub with the hopes of adding to it as time progresses.
+With the desire to have a least some projects on here, I wrote a basic port scanner in Python in the hopes of adding to it as time progresses.
 
 Notes:
     1. Add different types of scanning depending on user needs
