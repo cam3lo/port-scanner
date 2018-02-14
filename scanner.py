@@ -10,13 +10,19 @@ def scan_host(ip, port):
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         conn = sock.connect_ex((ip, port)) #more efficient than connect()
         sock.close()
-    except Exception as e:
-        print("something's wrong with %s:%d. Exception is %s" % (address, port, e))
+
+    except socket.gaierror:
+        print("[+] Hostname could not be resolved to IP. Exiting ...")
+
+    except socket.error:
+        print("[+] Couldn't connect to server ...")
+
     return conn
 
 #get input from user
 try:
     host = input("[+] Enter Target Host Address: ")
+
 except KeyboardInterrupt: # Ctrl + C
     print("\n\n[+] Interrupt Requested.")
     print("[+] Leaving Your Ass ...") # fuck them, right?
@@ -34,8 +40,10 @@ for port in range(1, 65536):
         response = scan_host(host_ip, port)
         if response == 0:
             print("[+] Port %d: Open" % (port))
+
     except Exception:
         pass #just keep swimming
+
     except KeyboardInterrupt: # Ctrl + C
         print("\n\n[+] Interrupt Requested.")
         print("[+] Leaving Your Ass ...") # fuck them, right?
